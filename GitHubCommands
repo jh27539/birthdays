@@ -1,0 +1,35 @@
+Here are some useful commands for github
+
+//Install git on your computer (linux)
+sudo apt-get install git
+
+// set up the configuration details of your account
+git config --global user.name "USERNAME"
+git config --global user.email "EMAIL"
+
+//create a local repo on your machine
+git init <REPOSITORY>
+
+//select your project/repo from your account
+git remote add origin https://github.com/jh27539/<PROJECT>.git
+
+//in case you type the wrong one by accident
+git remote set-url origin https://github.com/jh27539/<PROJECT>.git
+
+//add a file to your repo
+git add <FILENAME>
+
+//add all files in the current directory
+git add *
+
+//commit and use a comment
+git commit -m "commentUpdates"
+
+//Push to online github
+git push -u origin master
+
+If you already have a project to push on your computer,
+1 - set up a repo on github with the same name
+2 - remote add origin
+3 - commit
+4 - git push -u origin master
