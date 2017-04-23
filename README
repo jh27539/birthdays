@@ -1,1 +1,2 @@
-This is a read me file
+This is a birthday reminders application called birthdays.
+This project uses QT framework and stores data in a file called birthday.dat
