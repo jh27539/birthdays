@@ -3,7 +3,7 @@ Here are some useful commands for github
 //Install git on your computer (linux)
 sudo apt-get install git
 
-// set up the configuration details of your account
+// Global setup
 git config --global user.name "USERNAME"
 git config --global user.email "EMAIL"
 
@@ -30,6 +30,6 @@ git push -u origin master
 
 If you already have a project to push on your computer,
 1 - set up a repo on github with the same name
-2 - remote add origin
-3 - commit
+2 - navigate to that directory on your pc
+3 - remote add origin
 4 - git push -u origin master

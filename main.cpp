@@ -40,7 +40,12 @@ int main(int argc, char *argv[])
 	    QString name  = file.readLine();
 	    QString date = file.readLine();
 	    name.remove("\n");
-	    name.append("\t\t");
+
+	    if(name.size() > 15)
+	    	name.append("\t");
+	    else
+	    	name.append("\t\t");
+
 	    name.append(date);
 	    outputList << name;
     }
@@ -112,6 +117,8 @@ int main(int argc, char *argv[])
     {
     	out << outputList[i];
     }
+
+    qDebug() << endl;
 
     return 0;
 }
