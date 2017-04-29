@@ -6,7 +6,7 @@
 ////////////////////////
 
 
-//#include "Person.h"
+#include "person.h"
 #include <QDate>
 #include <QFile>
 #include <QDebug>
@@ -20,7 +20,13 @@ void testDates();
 //argv stores pointers to them in a vector
 int main(int argc, char *argv[])
 {
-	//testDates();
+	QString myName = "Joshua";
+	QDate myBirthday = QDate(1992,12,01);
+
+	Person josh = Person(myName, myBirthday);
+	qDebug() << josh.getName() << josh.getBirthday();
+
+	QDate testBirthday = josh.getBirthday();
 
 	QTextStream out(stdout);
     QStringList outputList;
@@ -35,6 +41,8 @@ int main(int argc, char *argv[])
 
     //Fill up outputList with each entry
     QTextStream in(&file);
+
+    /*
     while (!file.atEnd())
     {
 	    QString name  = file.readLine();
@@ -48,7 +56,8 @@ int main(int argc, char *argv[])
 
 	    name.append(date);
 	    outputList << name;
-    }
+    }*/
+
 
     switch (argc)
     {
@@ -72,7 +81,7 @@ int main(int argc, char *argv[])
 	    	}
 
 	    	//else if(*(argv[1]+1) > 65 || *(argv[1]+1) < 91 )
-	    		//qDebug() << "Show all birthdays for that name";
+	    	//qDebug() << "Show all birthdays for that name";
 
 	    	else
 	    	{
@@ -117,8 +126,6 @@ int main(int argc, char *argv[])
     {
     	out << outputList[i];
     }
-
-    qDebug() << endl;
 
     return 0;
 }

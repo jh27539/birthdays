@@ -48,8 +48,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = main.cpp 
-OBJECTS       = main.o
+SOURCES       = main.cpp \
+		person.cpp 
+OBJECTS       = main.o \
+		person.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -105,7 +107,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		birthdays.pro  main.cpp
+		birthdays.pro person.h main.cpp \
+		person.cpp
 QMAKE_TARGET  = birthdays
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = birthdays
@@ -267,7 +270,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents person.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp person.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -304,8 +308,11 @@ compiler_clean:
 
 ####### Compile
 
-main.o: main.cpp 
+main.o: main.cpp person.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+
+person.o: person.cpp person.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o person.o person.cpp
 
 ####### Install
 

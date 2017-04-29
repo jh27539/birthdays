@@ -1,4 +1,5 @@
 Here are some useful commands for github
+Check out rogerdudler.github.io/git-guide/
 
 //Install git on your computer (linux)
 sudo apt-get install git
@@ -33,3 +34,9 @@ If you already have a project to push on your computer,
 2 - navigate to that directory on your pc
 3 - remote add origin
 4 - git push -u origin master
+
+//Add and Commit changes
+1 - git add <filename>
+2 - git commit -m "Commit Message"
+3 - git push origin master
+
